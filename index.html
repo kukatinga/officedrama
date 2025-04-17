@@ -1,147 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Office Drama Calculator</title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 The Official Office DRAMA-LYZER 🚨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Body Styling */
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      color: #333;
-      line-height: 1.6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+        /* Body Styling - More dynamic background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Diagonal gradient with more contrast */
+            background: linear-gradient(135deg, #6a85b6 0%, #bac8e0 100%);
+            color: #2c3e50; /* Darker blue-grey text */
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full height */
+            padding: 20px; /* Add padding for smaller screens */
+        }
 
-    /* Container Styling */
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      text-align: center;
-    }
+        /* Container Styling - Like a slightly crumpled memo */
+        .container {
+            background: #fdfdfd; /* Slightly off-white */
+            padding: 30px 40px;
+            border-radius: 8px;
+            /* More pronounced shadow for depth */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 550px;
+            width: 100%; /* Responsive width */
+            text-align: center;
+            border: 1px solid #ddd;
+            /* Slight rotation for character */
+            transform: rotate(-0.5deg);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: rotate(0deg); /* Straighten on hover */
+        }
 
-    /* Title Styling */
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #4a90e2;
-    }
+        /* Title Styling - Using a more 'typewriter' or 'urgent' font */
+        h1 {
+            font-family: 'Special Elite', cursive; /* Thematic font */
+            font-size: 2.2rem; /* Slightly larger */
+            margin-bottom: 15px;
+            color: #c0392b; /* Urgent red */
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
 
-    /* Input Field Styling */
-    .input-group {
-      margin: 15px 0;
-    }
+        .subtitle {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            color: #7f8c8d; /* Muted grey */
+        }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #555;
-    }
+        /* Input Field Styling - Cleaner, more defined */
+        .input-group {
+            margin: 20px 0;
+            text-align: left; /* Align labels left */
+        }
 
-    input[type="number"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700; /* Bolder labels */
+            font-size: 0.9rem;
+            color: #34495e; /* Dark blue */
+        }
 
-    /* Button Styling */
-    button {
-      background-color: #4a90e2;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #bdc3c7; /* Grey border */
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #e74c3c; /* Red focus border */
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.3); /* Red glow */
+        }
+        /* Hide spinner buttons for a cleaner look */
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield; /* Firefox */
+        }
 
-    button:hover {
-      background-color: #357ab8;
-    }
 
-    /* Result Display Styling */
-    .result {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #333;
-    }
+        /* Button Styling - More impactful */
+        button {
+            background-color: #e74c3c; /* Strong red */
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px; /* Pill shape */
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
 
-    .result span {
-      font-weight: bold;
-      color: #4a90e2;
-    }
-  </style>
+        button:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            transform: translateY(-2px); /* Slight lift */
+            box-shadow: 0 6px 12px rgba(192, 57, 43, 0.4);
+        }
+        button:active {
+            transform: translateY(0px); /* Push down on click */
+            box-shadow: 0 2px 5px rgba(192, 57, 43, 0.3);
+        }
+
+        /* Result Display Styling - Dynamic feedback */
+        .result {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #ecf0f1; /* Light grey background */
+            border: 1px dashed #bdc3c7; /* Dashed border */
+            font-size: 1.1rem;
+            color: #34495e;
+            transition: background-color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .result span#dq-result {
+            font-weight: 700;
+            font-size: 1.8rem; /* Make number prominent */
+            color: #2c3e50;
+            display: block; /* Put number on its own line */
+            margin-bottom: 5px;
+        }
+        .result span#dq-level {
+            font-style: italic;
+            font-weight: 700;
+            display: block; /* Put level description on its own line */
+        }
+
+        /* Dynamic result styling based on drama level */
+        .result.drama-low {
+            background-color: #e8f6f3;
+            border-color: #1abc9c; /* Greenish */
+        }
+        .result.drama-low span#dq-level { color: #16a085; }
+
+        .result.drama-medium {
+            background-color: #fef9e7;
+            border-color: #f39c12; /* Yellowish */
+        }
+        .result.drama-medium span#dq-level { color: #d35400; } /* Orange text */
+
+        .result.drama-high {
+            background-color: #fdedec;
+            border-color: #e74c3c; /* Reddish */
+        }
+         .result.drama-high span#dq-level { color: #c0392b; } /* Red text */
+
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>The Office Drama Calculator</h1>
-    <p>Calculate the intensity of workplace drama based on three key factors:</p>
+    <div class="container">
+        <h1>🚨 The Official Office DRAMA-LYZER 🚨</h1>
+        <p class="subtitle">Quantify the chaos! Enter the metrics below to gauge the current workplace volatility.</p>
 
-    <!-- Input Fields -->
-    <div class="input-group">
-      <label for="coworkers">Number of Coworkers Involved:</label>
-      <input type="number" id="coworkers" placeholder="Enter number of coworkers" min="2" required>
+        <div class="input-group">
+            <label for="coworkers">Number of Primary Instigators:</label>
+            <input type="number" id="coworkers" placeholder="e.g., 3" min="1" required>
+        </div>
+
+        <div class="input-group">
+            <label for="gossip">Whisper Network Intensity (1–10):</label>
+            <input type="number" id="gossip" placeholder="1 = Zen, 10 = Gossip Tsunami" min="1" max="10" required>
+        </div>
+
+        <div class="input-group">
+            <label for="days">Days Since Last Major Incident (Ceasefire Duration):</label>
+            <input type="number" id="days" placeholder="e.g., 5" min="0" required>
+        </div>
+
+        <button onclick="calculateDrama()">Analyze Drama Quotient (DQ)</button>
+
+        <div class="result" id="result-display">
+            Drama Quotient (DQ): <span id="dq-result">--</span>
+            Drama Level: <span id="dq-level">Awaiting Analysis...</span>
+        </div>
     </div>
 
-    <div class="input-group">
-      <label for="gossip">Gossip Intensity (1–10):</label>
-      <input type="number" id="gossip" placeholder="Enter gossip intensity" min="1" max="10" required>
-    </div>
+    <script>
+        // Function to calculate Drama Quotient and determine level
+        function calculateDrama() {
+            // Get input values
+            const coworkers = parseInt(document.getElementById('coworkers').value);
+            const gossip = parseInt(document.getElementById('gossip').value);
+            const days = parseInt(document.getElementById('days').value); // Keep as integer
 
-    <div class="input-group">
-      <label for="days">Days Since Last Drama:</label>
-      <input type="number" id="days" placeholder="Enter days since last drama" min="0" required>
-    </div>
+            // Basic validation
+            if (isNaN(coworkers) || isNaN(gossip) || isNaN(days) || coworkers < 1 || gossip < 1 || gossip > 10 || days < 0) {
+                alert("Please enter valid numbers in all fields (Coworkers >= 1, Gossip 1-10, Days >= 0).");
+                return;
+            }
 
-    <!-- Calculate Button -->
-    <button onclick="calculateDrama()">Calculate Drama Quotient (DQ)</button>
+            // Calculate DQ using the *new* adjusted formula
+            // (coworkers * gossip * multiplier) + decay based on days of peace
+            // Adding 1 to days prevents division by zero and makes day 0 impactful
+            const dq = Math.round((coworkers * gossip * 1.5) + (50 / (days + 1)));
 
-    <!-- Result Display -->
-    <div class="result">
-      Your Drama Quotient (DQ): <span id="dq-result">?</span>
-    </div>
-  </div>
+            // Determine Drama Level and Description
+            let levelDescription = '';
+            let levelClass = '';
 
-  <script>
-    // Function to calculate Drama Quotient
-    function calculateDrama() {
-      // Get input values
-      const coworkers = parseFloat(document.getElementById('coworkers').value) || 0;
-      const gossip = parseFloat(document.getElementById('gossip').value) || 0;
-      const days = parseFloat(document.getElementById('days').value) || 0;
+            // Define thresholds (adjust these as needed for balance)
+            const LOW_THRESHOLD = 40;
+            const MEDIUM_THRESHOLD = 90;
 
-      // Validate inputs
-      if (isNaN(coworkers) || isNaN(gossip) || isNaN(days)) {
-        alert("Please enter valid numbers for all fields.");
-        return;
-      }
+            if (dq < LOW_THRESHOLD) {
+                levelDescription = "Status: Tranquil. Mostly just passive-aggressive Post-it notes.";
+                levelClass = 'drama-low';
+            } else if (dq < MEDIUM_THRESHOLD) {
+                levelDescription = "Status: Elevated. Expect tense coffee breaks and 'reply-all' skirmishes.";
+                levelClass = 'drama-medium';
+            } else {
+                levelDescription = "Status: CRITICAL! Batten down the hatches, HR is probably on speed dial.";
+                levelClass = 'drama-high';
+            }
 
-      // Calculate DQ using the formula
-      const dq = (coworkers * gossip) + (10 * Math.sqrt(days));
+            // Display the result
+            document.getElementById('dq-result').textContent = dq;
+            document.getElementById('dq-level').textContent = levelDescription;
 
-      // Display the result
-      document.getElementById('dq-result').textContent = Math.round(dq);
-    }
-  </script>
+            // Update result display styling
+            const resultDisplay = document.getElementById('result-display');
+            resultDisplay.className = 'result'; // Reset classes first
+            resultDisplay.classList.add(levelClass); // Add the new level class
+        }
+    </script>
 
 </body>
 </html>
