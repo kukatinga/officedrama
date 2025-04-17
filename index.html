@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Office Drama Calculator</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Container Styling */
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      text-align: center;
+    }
+
+    /* Title Styling */
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #4a90e2;
+    }
+
+    /* Input Field Styling */
+    .input-group {
+      margin: 15px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    /* Button Styling */
+    button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #357ab8;
+    }
+
+    /* Result Display Styling */
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .result span {
+      font-weight: bold;
+      color: #4a90e2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>The Office Drama Calculator</h1>
+    <p>Calculate the intensity of workplace drama based on three key factors:</p>
+
+    <!-- Input Fields -->
+    <div class="input-group">
+      <label for="coworkers">Number of Coworkers Involved:</label>
+      <input type="number" id="coworkers" placeholder="Enter number of coworkers" min="2" required>
+    </div>
+
+    <div class="input-group">
+      <label for="gossip">Gossip Intensity (1–10):</label>
+      <input type="number" id="gossip" placeholder="Enter gossip intensity" min="1" max="10" required>
+    </div>
+
+    <div class="input-group">
+      <label for="days">Days Since Last Drama:</label>
+      <input type="number" id="days" placeholder="Enter days since last drama" min="0" required>
+    </div>
+
+    <!-- Calculate Button -->
+    <button onclick="calculateDrama()">Calculate Drama Quotient (DQ)</button>
+
+    <!-- Result Display -->
+    <div class="result">
+      Your Drama Quotient (DQ): <span id="dq-result">?</span>
+    </div>
+  </div>
+
+  <script>
+    // Function to calculate Drama Quotient
+    function calculateDrama() {
+      // Get input values
+      const coworkers = parseFloat(document.getElementById('coworkers').value) || 0;
+      const gossip = parseFloat(document.getElementById('gossip').value) || 0;
+      const days = parseFloat(document.getElementById('days').value) || 0;
+
+      // Validate inputs
+      if (isNaN(coworkers) || isNaN(gossip) || isNaN(days)) {
+        alert("Please enter valid numbers for all fields.");
+        return;
+      }
+
+      // Calculate DQ using the formula
+      const dq = (coworkers * gossip) + (10 * Math.sqrt(days));
+
+      // Display the result
+      document.getElementById('dq-result').textContent = Math.round(dq);
+    }
+  </script>
+
+</body>
+</html>
